@@ -1,7 +1,6 @@
 import app.multithread as multithread
 import paho.mqtt.client as mqtt
 import json
-import time
 
 @multithread.background
 def listener():
