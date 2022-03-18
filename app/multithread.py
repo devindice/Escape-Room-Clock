@@ -1,5 +1,4 @@
 import asyncio
-import time
 
 def background(f):
     def wrapped(*args, **kwargs):
