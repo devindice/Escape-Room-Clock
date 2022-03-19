@@ -1,3 +1,4 @@
+import app.multithread as multithread
 import app.config as config
 import app.clock as clock
 import app.mqtt as mqtt
@@ -6,19 +7,13 @@ import time
 
 settings = config.read()
 buttons = ['buttonHrFw','buttonHrRv','buttonMnFw','buttonMnRv']
-#buttons = ['buttonHrFw']
 
-# Set pin numbers
-buttonHrFwPin = settings.get('buttonHrFwPin')
-buttonHrRvPin = settings.get('buttonHrRvPin')
-buttonMnFwPin = settings.get('buttonMnFwPin')
-buttonMnRvPin = settings.get('buttonMnRvPin')
-
-# Set button type (Normally Open or Normally Closed)
-buttonHrFwType = settings.get('buttonHrFwType')
-buttonHrRvType = settings.get('buttonHrRvType')
-buttonMnFwType = settings.get('buttonMnFwType')
-buttonMnRvType = settings.get('buttonMnRvType')
+@multithread.background
+def listener():
+    setPins()
+    while True:
+        check()
+        time.sleep(0.01)
 
 def setPins():
     GPIO.setwarnings(False) # Ignore warning for now
