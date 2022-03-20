@@ -2,6 +2,14 @@ import logging as log
 from logging.config import dictConfig
 import os
 
+# Usage
+# import app.logger as logger
+# logger.log.debug('This is a debug message')
+# logger.log.info('This is an info message')
+# logger.log.warning('This is a warning message')
+# logger.log.error('This is an error message')
+# logger.log.critical('This is a critical message')
+
 LOGGING_CONFIG = {
     'version': 1,
     'loggers': {
@@ -38,7 +46,7 @@ LOGGING_CONFIG = {
             'mode': 'a',
         },
         'error_file_handler': {
-            'level': 'ERROR',
+            'level': 'WARNING',
             'formatter': 'error',
             'class': 'logging.FileHandler',
             'filename': 'logs/error.log',
@@ -48,13 +56,15 @@ LOGGING_CONFIG = {
     'formatters': {
 
         'console': {
-            'format': '%(asctime)s - %(levelname)s - %(message)s'
+            'format': '%(asctime)s %(levelname)s - %(module)s - %(message)s',
+            'datefmt':'%Y-%m-%d %H:%M:%S'
         },
         'debug': {
-            'format': '%(asctime)s - %(levelname)s - %(process)d - %(module)s|%(lineno)s - %(message)s'
+            'format': '%(asctime)s PID: %(process)d Lvl: %(levelname)s Module: %(module)s Ln#: %(lineno)s Message: %(message)s'
         },
         'error': {
-            'format': '%(asctime)s - %(levelname)s - %(process)d - %(module)s|%(lineno)s - %(message)s'
+            'format': '%(asctime)s %(levelname)s - %(module)s - %(message)s',
+            'datefmt':'%Y-%m-%d %H:%M:%S'
         },
     },
 }

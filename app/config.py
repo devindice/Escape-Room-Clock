@@ -1,9 +1,58 @@
 import app.logger as logger
 import pathlib
 import json
+from os.path import exists
 
 configFile = 'config.json'
 appPath = str(pathlib.Path(__file__).parent.resolve()).removesuffix('app')
+
+if exists(f'{appPath}{configFile}'):
+    logger.log.debug("Config file exists")
+else:
+    logger.warning("Config does not exist, creating default config")
+    settings = {
+    'ticksFullRotation':'?',
+    'style':'interleave',
+    'currentHr':12,
+    'currentMn':0,
+    'resetHr':12,
+    'resetMn':0,
+    'limitRotationHr':'?',
+    'limitRotationMn':'?',
+    'triggerHr':1,
+    'triggerMn':0,
+    'triggerPin':37,
+    'triggerDelay':3,
+    'triggerDuration':'?',
+    'movementDelay':'?',
+    'movemnentRotation':'full',
+    'movementMinuteStep':'5',
+    'motorUnit1':'hour?',
+    'motorUnit2':'minute?',
+    'motorReverse1':'false',
+    'motorReverse2':'true',
+    'mqttEnable':'false',
+    'mqttBrokerAddress':'192.168.1.100',
+    'mqttTopicIn':'/pi/clock/in',
+    'mqttTopicOut':'/pi/clock/out',
+    'autoResetSeconds':300,
+    'timeoutMinutes':20,
+    'reduceDrift':'true?',
+    'calibrateHr':'',
+    'calibrateMn':'',
+    'autoUpdate':'true',
+    'buttonHrFwPin':32,
+    'buttonHrRvPin':36,
+    'buttonMnFwPin':38,
+    'buttonMnRvPin':40,
+    'buttonHrFwType':'normOpen',
+    'buttonHrRvType':'normOpen',
+    'buttonMnFwType':'normOpen',
+    'buttonMnRvType':'normOpen',
+    'reset':'false',
+    'unlock':'false'
+    }
+    write(settings)    
 
 def read():
     try:
@@ -11,16 +60,21 @@ def read():
             data = f.read()
         settings = json.loads(data)
     except:
-        logger.log.info("Config does not exist, creating default config")
-        settings = {'ticksFullRotation':0,'style':'interleave','currentHr':12,'currentMn':0,'resetHr':12,'resetMn':0,'limitRotationHr':0,'limitRotationMn':0,'triggerHr':1,'triggerMn':0,'triggerPin':37,'triggerDelay':3,'triggerDuration':0.25,'movementDelay':0.25,'movemnentRotation':'full','movementMinuteStep':'5','motor1':'hour','motor2':'minute','movementSnap':'true','mqttEnable':'false','mqttBrokerAddress':'192.168.1.100','mqttTopicIn':'/pi/clock/in','mqttTopicOut':'/pi/clock/out','autoResetSeconds':300,'reduceDrift':'true','mode':'run','calibrateMethod':4,'autoUpdate':'true','buttonHrFwPin':32,'buttonHrRvPin':36,'buttonMnFwPin':38,'buttonMnRvPin':40,'buttonHrFwType':'normOpen','buttonHrRvType':'normOpen','buttonMnFwType':'normOpen','buttonMnRvType':'normOpen','reset':'false','unlock':'false'}
-        write(settings)    
+        logger.log.warning('Unable to open the config, another process is holding', exc_info=True)
+        time.sleep(0.05)
+        data = False
+        while data:
+            with open(f'{appPath}{configFile}') as f:
+                data = f.read()
+        settings = json.loads(data)
     return settings
 
 def write(settings):
     try:
+        logger.log.debug("Writing changes")
         f = open(f'{appPath}{configFile}',"w")
         json.dump(settings,f)
         f.close()
     except:
-        logger.log.info('Unable to write config')
+        logger.log.error('Unable to write config')
 
