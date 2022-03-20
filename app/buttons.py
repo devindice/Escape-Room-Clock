@@ -1,3 +1,4 @@
+import app.logger as logger
 import app.multithread as multithread
 import app.config as config
 import app.clock as clock
@@ -30,42 +31,42 @@ def check():
         bType = settings.get(button + 'Type')
         if bType == 'normClosed':
             if GPIO.input(bPin) == GPIO.LOW:
-                print("Button %s was pushed!" %(button))
+                logger.log.info("Button %s was pushed!" %(button))
                 if button == 'buttonHrFw':
-                    print('adding hour')
+                    logger.log.info('adding hour')
                     clock.time('add', 'hour')
                 elif button == 'buttonHrRv':
-                    print('subtracting hour')
+                    logger.log.info('subtracting hour')
                     clock.time('subtract', 'hour')
                 elif button == 'buttonMnFw':
-                    print('Adding minute')
+                    logger.log.info('Adding minute')
                     clock.time('add', 'minute')
                 elif button == 'buttonMnRv':
-                    print('Subtracting minute')
+                    logger.log.info('Subtracting minute')
                     clock.time('subtract', 'minute')
                 mqtt.publish()
                 while GPIO.input(bPin) == GPIO.LOW:
                     time.sleep(0.01)
         elif bType == 'normOpen':
             if GPIO.input(bPin) == GPIO.HIGH:
-                print("Button %s was pushed!" %(button))
+                logger.log.info("Button %s was pushed!" %(button))
                 if button == 'buttonHrFw':
-                    print('adding hour') 
+                    logger.log.info('adding hour') 
                     clock.time('add', 'hour')
                 elif button == 'buttonHrRv':
-                    print('subtracting hour')
+                    logger.log.info('subtracting hour')
                     clock.time('subtract', 'hour')
                 elif button == 'buttonMnFw':
-                    print('Adding minute')
+                    logger.log.info('Adding minute')
                     clock.time('add', 'minute')
                 elif button == 'buttonMnRv':
-                    print('Subtracting minute')
+                    logger.log.info('Subtracting minute')
                     clock.time('subtract', 'minute')
                 mqtt.publish()
                 while GPIO.input(bPin) == GPIO.HIGH:
                     time.sleep(0.01)
         else:
-            print('Unknown button type')
+            logger.log.info('Unknown button type')
             time.sleep(1)
 
 

@@ -1,8 +1,8 @@
+import app.logger as logger
 import app.config as config
 
 def time(add_subtract,unit):
     settings = config.read()
-    print(add_subtract,unit)
     if unit == 'hour':
         h = settings.get('currentHr')
         if add_subtract == 'add':
@@ -14,7 +14,7 @@ def time(add_subtract,unit):
             if h < 1:
                 h = 12
         else:
-            print('unknown function')
+            logger.log.info('unknown function')
         settings['currentHr'] = h
 
     elif unit == 'minute':
@@ -28,7 +28,7 @@ def time(add_subtract,unit):
             if m < 0:
                 m = 60 - int(settings.get('movementMinuteStep'))
         else:
-            print('unknown function')
+            logger.log.info('unknown function')
         settings['currentMn'] = m
 
     config.write(settings)

@@ -10,7 +10,7 @@ LOGGING_CONFIG = {
             'handlers': [
             	'console_stream_handler',
             	'console_file_handler',
-            	'info_file_handler',
+            	'debug_file_handler',
             	'error_file_handler',
             ],
             'propagate': False,
@@ -24,21 +24,21 @@ LOGGING_CONFIG = {
             'stream': 'ext://sys.stdout',
         },
         'console_file_handler': {
-            'level': 'DEBUG',
-            'formatter': 'console',
-            'class': 'logging.FileHandler',
-            'filename': 'logs/debug.log',
-            'mode': 'a',
-        },
-        'info_file_handler': {
             'level': 'INFO',
-            'formatter': 'info',
+            'formatter': 'console',
             'class': 'logging.FileHandler',
             'filename': 'logs/console.log',
             'mode': 'a',
         },
+        'debug_file_handler': {
+            'level': 'DEBUG',
+            'formatter': 'debug',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/debug.log',
+            'mode': 'a',
+        },
         'error_file_handler': {
-            'level': 'WARNING',
+            'level': 'ERROR',
             'formatter': 'error',
             'class': 'logging.FileHandler',
             'filename': 'logs/error.log',
@@ -50,8 +50,8 @@ LOGGING_CONFIG = {
         'console': {
             'format': '%(asctime)s - %(levelname)s - %(message)s'
         },
-        'info': {
-            'format': '%(asctime)s - %(levelname)s - %(module)s|%(lineno)s - %(message)s'
+        'debug': {
+            'format': '%(asctime)s - %(levelname)s - %(process)d - %(module)s|%(lineno)s - %(message)s'
         },
         'error': {
             'format': '%(asctime)s - %(levelname)s - %(process)d - %(module)s|%(lineno)s - %(message)s'

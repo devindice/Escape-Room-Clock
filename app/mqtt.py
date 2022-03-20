@@ -1,3 +1,4 @@
+import app.logger as logger
 import app.multithread as multithread
 import app.config as config
 import paho.mqtt.client as mqtt
@@ -11,6 +12,7 @@ mqttTopicIn = settings.get('mqttTopicIn')
 
 @multithread.background
 def listener():
+
     settings = config.read()
     if settings.get('mqttEnable') == "true":
         try:
@@ -18,12 +20,12 @@ def listener():
             subclient.on_message = on_message
             subclient.connect('%s' %(mqttBroker))
             subclient.subscribe('%s' %(mqttTopicIn), 2)
-            print("MQTT - Subscribed to %s on %s" %(mqttTopicIn,mqttBroker))
+            logger.log.info("MQTT - Subscribed to %s on %s" %(mqttTopicIn,mqttBroker))
             subclient.loop_forever()
         except:
-            print("MQTT - Unable to subscribe to %s on %s" %(mqttTopic,mqttBroker))
+            logger.log.info("MQTT - Unable to subscribe to %s on %s" %(mqttTopic,mqttBroker))
     else:
-        print('MQTT - Subscription Disabled')
+        logger.log.info('MQTT - Subscription Disabled')
 
 def on_message(client, userdata, msg):
     settings = config.read()
@@ -33,16 +35,16 @@ def on_message(client, userdata, msg):
         if key in message.keys():
             value = message.get(key) 
             settings[key] = value
-            print("MQTT - Set %s: %s" %(key,value))
+            logger.log.info("MQTT - Set %s: %s" %(key,value))
     config.write(settings)
 
 def publish():
     settings = config.read()
     if settings.get('mqttEnable') == "true":
         try:
-            print("MQTT - Publish")
+            logger.log.info("MQTT - Publish")
             client = mqtt.Client(mqttClient + 'Out')
             client.connect(mqttBroker)
             client.publish(mqttTopicOut,json.dumps(settings))
         except:
-            print("Unable to publish mqtt messsage")
+            logger.log.info("Unable to publish mqtt messsage")
