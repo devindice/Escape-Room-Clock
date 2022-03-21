@@ -1,5 +1,4 @@
 import app.logger as logger
-import app.config as config
 import app.mqtt as mqtt
 import app.buttons as buttons
 
