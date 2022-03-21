@@ -16,55 +16,51 @@ LOGGING_CONFIG = {
         '': {  # root logger
             'level': 'NOTSET',
             'handlers': [
-            	'console_stream_handler',
-            	'console_file_handler',
-            	'debug_file_handler',
-            	'error_file_handler',
+                'console_handler_stream',
+            	'console_handler_file',
+            	'error_handler_file',
+                'debug_handler_file',
             ],
             'propagate': False,
         },
     },
     'handlers': {
-        'console_stream_handler': {
+        'console_handler_stream': {
             'level': 'INFO',
-            'formatter': 'console',
+            'formatter': 'default',
             'class': 'logging.StreamHandler',
             'stream': 'ext://sys.stdout',
         },
-        'console_file_handler': {
+        'console_handler_file': {
             'level': 'INFO',
-            'formatter': 'console',
+            'formatter': 'default',
             'class': 'logging.FileHandler',
             'filename': 'logs/console.log',
             'mode': 'a',
         },
-        'debug_file_handler': {
+        'error_handler_file': {
+            'level': 'WARNING',
+            'formatter': 'default',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/error.log',
+            'mode': 'a',
+        },
+        'debug_handler_file': {
             'level': 'DEBUG',
             'formatter': 'debug',
             'class': 'logging.FileHandler',
             'filename': 'logs/debug.log',
             'mode': 'a',
-        },
-        'error_file_handler': {
-            'level': 'WARNING',
-            'formatter': 'error',
-            'class': 'logging.FileHandler',
-            'filename': 'logs/error.log',
-            'mode': 'a',
         }
     },
     'formatters': {
 
-        'console': {
+        'default': {
             'format': '%(asctime)s %(levelname)s - %(module)s - %(message)s',
             'datefmt':'%Y-%m-%d %H:%M:%S'
         },
         'debug': {
             'format': '%(asctime)s PID: %(process)d Lvl: %(levelname)s Module: %(module)s Ln#: %(lineno)s Message: %(message)s'
-        },
-        'error': {
-            'format': '%(asctime)s %(levelname)s - %(module)s - %(message)s',
-            'datefmt':'%Y-%m-%d %H:%M:%S'
         },
     },
 }
