@@ -10,9 +10,9 @@ def setup():
     if exists(f'{appPath}{configFile}'):
         logger.log.debug("Config file exists")
     else:
-        logger.warning("Config does not exist, creating default config")
+        logger.log.warning("Config does not exist, creating default config")
         settings = {
-        'ticksFullRotation':'?',
+        'ticksFullRotation':12000,
         'style':'interleave',
         'currentHr':12,
         'currentMn':0,
@@ -25,11 +25,11 @@ def setup():
         'triggerPin':37,
         'triggerDelay':3,
         'triggerDuration':'?',
-        'movementDelay':'?',
+        'movementDelay':0.25,
         'movemnentRotation':'full',
-        'movementMinuteStep':'5',
-        'motorUnit1':'hour?',
-        'motorUnit2':'minute?',
+        'movementMinuteStep':'1',
+        'motorHr':'motor1',
+        'motorMn':'motor2',
         'motorReverse1':'false',
         'motorReverse2':'true',
         'mqttEnable':'false',
@@ -42,10 +42,10 @@ def setup():
         'calibrateHr':'',
         'calibrateMn':'',
         'autoUpdate':'true',
-        'buttonHrFwPin':32,
-        'buttonHrRvPin':36,
-        'buttonMnFwPin':38,
-        'buttonMnRvPin':40,
+        'buttonHrFwPin':12,
+        'buttonHrRvPin':16,
+        'buttonMnFwPin':20,
+        'buttonMnRvPin':21,
         'buttonHrFwType':'normOpen',
         'buttonHrRvType':'normOpen',
         'buttonMnFwType':'normOpen',

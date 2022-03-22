@@ -4,18 +4,20 @@ kit = MotorKit()
 from adafruit_motor import stepper
 import time
 
-def clock(cw_ccw, hour_minute, count):
-    fullSteps = 12000
+def clock(parameters,cw_ccw, hour_minute, count):
+    fullSteps = parameters.get('ticksFullRotation')
     stepsMinute = fullSteps / 60
     stepsHour = fullSteps / 12
-    if hour_minute == 'hour':
-        for i in range(count):
-            motorControl('motor1',cw_ccw, 'interleave', stepsHour)
-            time.sleep(0.25)
-    elif hour_minute == 'minute':
-        for i in range(count):
-            motorControl('motor2',cw_ccw, 'interleave', stepsMinute)
-            time.sleep(0.25)
+    motorHr = parameters.get("motorHr")
+    motorMn = parameters.get("motorMn")
+    style = parameters.get("style")
+    movementDelay = parameters.get("movementDelay")
+    for i in range(count):
+        if hour_minute == 'hour':
+            motorControl(motorHr,cw_ccw, style, stepsHour)
+        elif hour_minute == 'minute':
+            motorControl(motorMn,cw_ccw, style, stepsMinute)
+    time.sleep(movementDelay)
 
 def motorControl(motor,cw_ccw, style, steps):
     if cw_ccw == 'cw':
