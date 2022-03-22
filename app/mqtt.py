@@ -1,21 +1,16 @@
 import app.logger as logger
 import app.multithread as multithread
-import app.config as config
 import paho.mqtt.client as mqtt
 import json
 
-settings = config.read()
-mqttClient = 'RPi_Clock'
-mqttBroker = settings.get('mqttBrokerAddress')
-mqttTopicOut = settings.get('mqttTopicOut')
-mqttTopicIn = settings.get('mqttTopicIn')
-
 @multithread.background
-def listener():
+def listener(parameters):
+    mqttClient = 'RPi_Clock'
+    mqttBroker = parameters.get('mqttBrokerAddress')
+    mqttTopicOut = parameters.get('mqttTopicOut')
+    mqttTopicIn = parameters.get('mqttTopicIn')
     try:
-        logger.log.debug("Reading config")
-        settings = config.read()
-        if settings.get('mqttEnable') == "true":
+        if parameters.get('mqttEnable') == "true":
             try:
                 subclient = mqtt.Client(mqttClient + 'In')
                 subclient.on_message = on_message
@@ -35,37 +30,28 @@ def listener():
 
 def on_message(client, userdata, msg):
     logger.log.debug("Reading changes from other processes")
-    settings = config.read()
     message = msg.payload
     message = json.loads(message.decode('utf8'))
     logger.log.debug("Message Received - \"%s\"" %(message))
     for key in message:
         value = message.get(key)
-        if key in settings.keys():
+        if key in parameters.keys():
             logger.log.info("Setting %s to %s" %(key,value))
-            settings[key] = value
-            config.write(settings)
+            parameters[key] = value
         else:
             logger.log.warning("Received key %s is not valid " %(key))
 
-    #for key in settings.keys():
-    #    if key in message.keys():
-    #        value = message.get(key) 
-    #        settings[key] = value
-    #        logger.log.info("Set %s: %s" %(key,value))
-    #    elif key not in message.keys():
-    #        value = message.get(key)
-    #        logger.log.error(f"Unknown key: %s; Value: %s" %(key,value))
-    #config.write(settings)
-
-def publish():
+def publish(parameters):
+    mqttClient = 'RPi_Clock'
+    mqttBroker = parameters.get('mqttBrokerAddress')
+    mqttTopicOut = parameters.get('mqttTopicOut')
+    mqttTopicIn = parameters.get('mqttTopicIn')
     logger.log.debug("Reading changes from other processes")
-    settings = config.read()
-    if settings.get('mqttEnable') == "true":
+    if parameters.get('mqttEnable') == "true":
         try:
             logger.log.debug("Sending Message")
             client = mqtt.Client(mqttClient + 'Out')
             client.connect(mqttBroker)
-            client.publish(mqttTopicOut,json.dumps(settings))
+            client.publish(mqttTopicOut,json.dumps(parameters))
         except:
             logger.log.error("Messsage Failed to Send", exc_info=True)
