@@ -4,7 +4,9 @@ import paho.mqtt.client as mqtt
 import json
 
 @multithread.background
-def listener(parameters):
+def listener(globalParameters):
+    global parameters
+    parameters = globalParameters
     mqttClient = 'RPi_Clock'
     mqttBroker = parameters.get('mqttBrokerAddress')
     mqttTopicOut = parameters.get('mqttTopicOut')
@@ -29,7 +31,6 @@ def listener(parameters):
         logger.log.critical("Listener Crashed", exc_info=True)
 
 def on_message(client, userdata, msg):
-    logger.log.debug("Reading changes from other processes")
     message = msg.payload
     message = json.loads(message.decode('utf8'))
     logger.log.debug("Message Received - \"%s\"" %(message))
@@ -46,7 +47,6 @@ def publish(parameters):
     mqttBroker = parameters.get('mqttBrokerAddress')
     mqttTopicOut = parameters.get('mqttTopicOut')
     mqttTopicIn = parameters.get('mqttTopicIn')
-    logger.log.debug("Reading changes from other processes")
     if parameters.get('mqttEnable') == "true":
         try:
             logger.log.debug("Sending Message")
