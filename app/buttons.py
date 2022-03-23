@@ -41,35 +41,22 @@ def check():
         bType = parameters.get(button + 'Type')
         if bType == 'normClosed':
             if gpio.input(bPin) == gpio.LOW:
-                logger.log.debug("Activated: %s" %(button))
-                if button == 'buttonHrFw':
-                    clock.time(parameters,'add', 'hour')
-                elif button == 'buttonHrRv':
-                    clock.time(parameters,'subtract', 'hour')
-                elif button == 'buttonMnFw':
-                    clock.time(parameters,'add', 'minute')
-                elif button == 'buttonMnRv':
-                    clock.time(parameters,'subtract', 'minute')
-                mqtt.publish(parameters)
-                #while gpio.input(bPin) == gpio.LOW:
-                #    logger.log.debug("Held: %s" %(button))
-                #    time.sleep(0.1)
+                buttonProcess(button)
         elif bType == 'normOpen':
             if gpio.input(bPin) == gpio.HIGH:
-                logger.log.debug("Activated: %s" %(button))
-                if button == 'buttonHrFw':
-                    clock.time(parameters,'add', 'hour')
-                elif button == 'buttonHrRv':
-                    clock.time(parameters,'subtract', 'hour')
-                elif button == 'buttonMnFw':
-                    clock.time(parameters,'add', 'minute')
-                elif button == 'buttonMnRv':
-                    clock.time(parameters,'subtract', 'minute')
-                mqtt.publish(parameters)
-                #while gpio.input(bPin) == gpio.HIGH:
-                #    logger.log.debug("Held: %s" %(button))
-                #    time.sleep(0.1)
+                buttonProcess(button)
         else:
             logger.log.error(f'Unknown option for bType: {{bType}}, Only accepts "normClosed" or "normOpen"')
             time.sleep(1)
 
+def buttonProcess(button):
+    logger.log.debug("Activated: %s" %(button))
+    if button == 'buttonHrFw':
+        clock.time(parameters,'add', 'hour')
+    elif button == 'buttonHrRv':
+        clock.time(parameters,'subtract', 'hour')
+    elif button == 'buttonMnFw':
+        clock.time(parameters,'add', 'minute')
+    elif button == 'buttonMnRv':
+        clock.time(parameters,'subtract', 'minute')
+    mqtt.publish(parameters)
