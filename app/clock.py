@@ -41,3 +41,84 @@ def time(parameters,add_subtract,unit):
     else:
         logger.log.error('Unknown option for "unit": %s, Only accepts "hour" or "minute"' %(unit))
 
+# Changes
+
+
+def add_subtract(hour_minute,add_subtract,val1,val2):
+    # Set limits
+    if hour_minute == 'hour':
+        limit = 12
+    elif hour_minute == 'minute':
+        limit = 60
+
+    # Addition
+    if add_subtract == 'add':
+        result = val1 + val2
+        if result > limit:
+            result -= limit
+    
+    # Subtraction
+    elif add_subtract == 'subtract':
+        result = val1 - val2
+        if result <= 0:
+            result += limit
+
+    # Set to 0 if value is minutes
+    if hour_minute == 'minute':
+        if result == limit:
+            result = 0
+    return result
+
+def jump(hour_minute,current,target):
+    # Set limits
+    if hour_minute == 'hour':
+        limit = 12
+    elif hour_minute == 'minute':
+        limit = 60
+    
+    # Get half way
+    half = limit / 2
+
+    # Calculate
+    result = current - target
+
+    # No negative values
+    if result < 0:
+        result = limit + result
+
+    # If more than half way, go the other direction
+    if result > half:
+        result = target - current
+        # No negative values
+        if result < 0:
+            result = limit + result
+        result = {'direction':'cw', 'value':result}
+    else:
+        result = {'direction':'ccw', 'value':result}
+    return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
