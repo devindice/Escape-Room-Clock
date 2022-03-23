@@ -17,7 +17,7 @@ def listener(parameters):
                 logger.log.debug('Writing changes to disk')
                 write(parameters)
                 oldParameters = str(parameters)
-            time.sleep(0.1)
+            time.sleep(1)
     except:
         logger.log.critical('Listener crashed', exc_info=True)
 
@@ -33,6 +33,8 @@ def setup():
         'currentMn':0,
         'defaultHr':12,
         'defaultMn':0,
+        'setHr':12,
+        'setMn':0,
         'limitRotationHr':'?',
         'limitRotationMn':'?',
         'triggerHr':1,
