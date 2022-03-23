@@ -33,11 +33,11 @@ def listener(globalParameters):
 def on_message(client, userdata, msg):
     message = msg.payload
     message = json.loads(message.decode('utf8'))
-    logger.log.debug("Message Received - \"%s\"" %(message))
+    logger.log.info("Message Received - \"%s\"" %(message))
     for key in message:
         value = message.get(key)
         if key in parameters.keys():
-            logger.log.info("Setting %s to %s" %(key,value))
+            logger.log.debug("Setting %s to %s" %(key,value))
             parameters[key] = value
         else:
             logger.log.warning("Received key %s is not valid " %(key))

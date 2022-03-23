@@ -1,10 +1,25 @@
 import app.logger as logger
+import app.multithread as multithread
+from os.path import exists
 import pathlib
 import json
-from os.path import exists
+import time
 
 configFile = 'config.json'
 appPath = str(pathlib.Path(__file__).parent.resolve()).removesuffix('app')
+
+@multithread.background
+def listener(parameters):
+    oldParameters = str(parameters)
+    try:
+        while True:
+            if oldParameters != str(parameters):
+                logger.log.debug('Writing changes to disk')
+                write(parameters)
+                oldParameters = str(parameters)
+            time.sleep(0.1)
+    except:
+        logger.log.critical('Listener crashed', exc_info=True)
 
 def setup():
     if exists(f'{appPath}{configFile}'):
@@ -59,7 +74,7 @@ def read():
     try:
         with open(f'{appPath}{configFile}') as f:
             data = f.read()
-        settings = json.loads(data)
+        parameters = json.loads(data)
     except:
         logger.log.warning('Unable to open the config, another process may also be writing', exc_info=True)
         time.sleep(0.05)
@@ -68,16 +83,15 @@ def read():
             with open(f'{appPath}{configFile}') as f:
                 data = f.read()
         settings = json.loads(data)
-    return settings
+    return parameters
 
-def write(settings):
+def write(parameters):
     try:
-        logger.log.debug("Writing changes")
         f = open(f'{appPath}{configFile}',"w")
-        json.dump(settings,f)
+        json.dump(parameters,f)
         f.close()
     except:
         logger.log.error('Unable to write config')
+setup()
 
-x = 0
-
+parameters = read()

@@ -5,15 +5,11 @@ import app.buttons as buttons
 import time
 import multiprocessing
 
-# Prepare Global Parameters
-manager = multiprocessing.Manager()
-parameters = manager.dict()
-
-# Import Global Parameters from disk
-config.setup()
-globalParameters = config.read()
+# Import parameters from disk
+parameters = config.parameters
 
 logger.log.info('Listeners Starting')
-backgroundTask1 = mqtt.listener(globalParameters)
-backgroundTask2 = buttons.listener(globalParameters)
+backgroundTask1 = mqtt.listener(parameters)
+backgroundTask2 = buttons.listener(parameters)
+backgroundTask3 = config.listener(parameters)
 
