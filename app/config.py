@@ -35,6 +35,7 @@ def setup():
         'defaultMn':0,
         'setHr':12,
         'setMn':0,
+        'mode':'gameTimer',
         'limitRotationHr':'?',
         'limitRotationMn':'?',
         'triggerHr':1,

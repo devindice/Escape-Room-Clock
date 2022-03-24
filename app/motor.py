@@ -1,23 +1,73 @@
 import app.logger as logger
+import app.clock as clock
+import app.multithread as multithread
 from adafruit_motorkit import MotorKit
 kit = MotorKit()
 from adafruit_motor import stepper
 import time
 
-def clock(parameters,cw_ccw, hour_minute, count):
-    fullSteps = parameters.get('ticksFullRotation')
-    stepsMinute = fullSteps / 60
-    stepsHour = fullSteps / 12
-    motorHr = parameters.get("motorHr")
-    motorMn = parameters.get("motorMn")
-    style = parameters.get("style")
-    movementDelay = parameters.get("movementDelay")
-    for i in range(count):
+
+@multithread.background
+def listener(globalParameters):
+    global parameters
+    parameters = globalParameters
+    try:
+        while True:
+            motors(parameters,'hour')
+            motors(parameters,'minute')
+            time.sleep(0.1)
+    except:
+        logger.log.critical("Listener Crashed", exc_info=True)
+
+def motors(parameters,hour_minute):
+    # Get parameters
+    style = parameters.get('style')
+    # What parameter should be pulled
+    if hour_minute == 'hour':
+        unit = 'Hr'
+    elif hour_minute == 'minute':
+        unit = 'Mn'
+    # Get the current position
+    current = parameters.get('current' + unit)
+
+    # Determine mode and set the target
+    mode = parameters.get('mode')
+    if mode == 'gameTimer':
+        target = parameters.get('default' + unit)
+    elif mode == 'play':
+        target = parameters.get('set' + unit)
+    elif mode == 'calibrate':
         if hour_minute == 'hour':
-            motorControl(motorHr,cw_ccw, style, stepsHour)
+            target = 12
         elif hour_minute == 'minute':
-            motorControl(motorMn,cw_ccw, style, stepsMinute)
-    time.sleep(movementDelay)
+            target = 0
+
+    # Get motor
+    motor = parameters.get('motor' + unit)
+
+    # Get movement
+    cw_ccw,count = clock.jump(hour_minute,current,target)
+
+    # Calculate ticks
+    fullSteps = parameters.get('ticksFullRotation')
+    if hour_minute == 'hour':
+        multiplier = fullSteps / 12
+    elif hour_minute == 'minute':
+        multiplier = fullSteps / 60
+    steps = count * multiplier
+
+    if cw_ccw == 'cw':
+        direction = 'clockwise'
+    elif cw_ccw == 'ccw':
+        direction = 'counterclockwise'
+
+    # Move Motor
+    if count > 0:
+        logger.log.info('Moving %s hand %s %s step(s)' %(hour_minute, direction, count))
+        motorControl(motor,cw_ccw, style, steps)
+
+        # Set current value
+        parameters['current' + unit] = target
 
 def motorControl(motor,cw_ccw, style, steps):
     if cw_ccw == 'cw':
