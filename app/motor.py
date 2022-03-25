@@ -1,6 +1,7 @@
 import app.logger as logger
 import app.clock as clock
 import app.multithread as multithread
+import app.mqtt as mqtt
 from adafruit_motorkit import MotorKit
 kit = MotorKit()
 from adafruit_motor import stepper
@@ -37,10 +38,13 @@ def motors(parameters,hour_minute):
     elif mode == 'play':
         target = parameters.get('set' + unit)
     elif mode == 'calibrate':
+        logger.log.debug("Setting target to calibrate")
         if hour_minute == 'hour':
             target = 12
         elif hour_minute == 'minute':
             target = 0
+    else:
+        logger.log.error("Unknown mode: %s" %(mode))
 
     # Get motor
     motor = parameters.get('motor' + unit)
@@ -68,6 +72,7 @@ def motors(parameters,hour_minute):
 
         # Set current value
         parameters['current' + unit] = target
+        mqtt.publish(parameters)
 
 def motorControl(motor,cw_ccw, style, steps):
     if cw_ccw == 'cw':

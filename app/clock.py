@@ -46,6 +46,7 @@ def time(parameters,add_subtract,unit):
 
 
 def add_subtract(hour_minute,add_subtract,val1,val2):
+    logger.log.info('%s %s %s' %(add_subtract, val1, val2))
     # Set limits
     if hour_minute == 'hour':
         limit = 12
@@ -54,13 +55,13 @@ def add_subtract(hour_minute,add_subtract,val1,val2):
 
     # Addition
     if add_subtract == 'add':
-        result = val1 + val2
+        result = float(val1) + float(val2)
         if result > limit:
             result -= limit
     
     # Subtraction
     elif add_subtract == 'subtract':
-        result = val1 - val2
+        result = float(val1) - float(val2)
         if result <= 0:
             result += limit
 
@@ -69,6 +70,7 @@ def add_subtract(hour_minute,add_subtract,val1,val2):
         if result == limit:
             result = 0
     return result
+    
 
 def jump(hour_minute,current,target):
     # Set limits

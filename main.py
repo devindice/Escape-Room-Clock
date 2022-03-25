@@ -5,9 +5,15 @@ import app.buttons as buttons
 import app.motor as motor
 import time
 import multiprocessing
+import RPi.GPIO as gpio 
+
 
 # Import parameters from disk
 parameters = config.parameters
+
+triggerPin = parameters.get('triggerPin')
+gpio.setup(triggerPin, gpio.OUT)
+gpio.output(triggerPin, gpio.LOW)
 
 logger.log.info('Listeners Starting')
 backgroundTask1 = mqtt.listener(parameters)
