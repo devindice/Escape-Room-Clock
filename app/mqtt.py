@@ -31,16 +31,23 @@ def service(globalParameters):
         logger.log.critical("Listener Crashed", exc_info=True)
 
 def on_message(client, userdata, msg):
+    defaultTimer = parameters.get('defaultTimer')
     message = msg.payload
     message = json.loads(message.decode('utf8'))
     logger.log.info("Message Received - \"%s\"" %(message))
     for key in message:
         value = message.get(key)
         if key in parameters.keys():
-            if key == 'defaultHr':
-                value = float(value) / 5
-            elif key == 'defaultMn':
-                value = float(value)
+            if defaultTimer == 'true':
+                if key == 'defaultHr':
+                    value = float(value) / 5
+                elif key == 'defaultMn':
+                    value = float(value)
+            else:
+                if key == 'defaultHr':
+                    value = float(value)
+                elif key == 'defaultMn':
+                    value = float(value)
             logger.log.debug("Setting %s to %s" %(key,value))
             parameters[key] = value
         else:

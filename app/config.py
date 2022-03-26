@@ -33,6 +33,7 @@ def setup():
         'currentMn':0,
         'defaultHr':12,
         'defaultMn':0,
+        'defaultTimer':'true',
         'setHr':12,
         'setMn':0,
         'mode':'gameTimer',
