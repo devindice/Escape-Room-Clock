@@ -1,3 +1,3 @@
 # Symlink this to /etc/cron.d
 * * * * * pi ! ps aux | grep python | grep main.py | grep -v grep && /usr/bin/python3 /home/pi/Escape-Room-Clock/main.py 
-0 4 * * * root cd /home/pi/Escape-Room-Clock/ && git stash && git clean -fd && git pull && kill $(ps aux | grep python | grep main.py | grep -v grep | awk '{print $2}')
+0 4 * * 0 root cd /home/pi/Escape-Room-Clock/ && git stash && git clean -fd && git pull && kill $(ps aux | grep python | grep main.py | grep -v grep | awk '{print $2}')
