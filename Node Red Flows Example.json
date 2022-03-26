@@ -1,0 +1,1729 @@
+[
+    {
+        "id": "0f521bdd521c9a1d",
+        "type": "tab",
+        "label": "Configuration",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "69a0b091a7fd95b0",
+        "type": "tab",
+        "label": "Display",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "80954820a252c261",
+        "type": "tab",
+        "label": "Controls",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "14f275b6d87b584b",
+        "type": "ui_group",
+        "name": "Config",
+        "tab": "9f19b0f65d1f4988",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dacc6ea4576e15c8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "9f19b0f65d1f4988",
+        "type": "ui_tab",
+        "name": "Monitor",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "010f3e64ea356359",
+        "type": "ui_group",
+        "name": "Guages",
+        "tab": "9f19b0f65d1f4988",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bd0db6e03dc0c02b",
+        "type": "mqtt-broker",
+        "name": "mqttServer",
+        "broker": "192.168.185.2",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6bcbbc989488cd21",
+        "type": "ui_group",
+        "name": "Controls",
+        "tab": "9f19b0f65d1f4988",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "32efb11af940f557",
+        "type": "ui_group",
+        "name": "Calibrate",
+        "tab": "9f19b0f65d1f4988",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "05b75ac833c6fdda",
+        "type": "ui_spacer",
+        "z": "0f521bdd521c9a1d",
+        "name": "spacer",
+        "group": "010f3e64ea356359",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "504c25d59cea3ee3",
+        "type": "mqtt out",
+        "z": "0f521bdd521c9a1d",
+        "name": "/pi/clock/in",
+        "topic": "/pi/clock/in",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "bd0db6e03dc0c02b",
+        "x": 970,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "07b575e5a68f9d9b",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "Unlock",
+        "group": "6bcbbc989488cd21",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Unlock",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"true\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 300,
+        "y": 640,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "07e71e7294365e27",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "triggerHr json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"triggerHr\":\"{{payload}}\"}",
+        "output": "json",
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "84d75885365f08ef",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "triggerMn json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"triggerMn\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "29c43723e14879be",
+        "type": "ui_numeric",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Trigger Hour",
+        "tooltip": "",
+        "group": "14f275b6d87b584b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "12",
+        "step": 1,
+        "className": "",
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "07e71e7294365e27"
+            ]
+        ]
+    },
+    {
+        "id": "5f5c2971e977b4ff",
+        "type": "ui_numeric",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Trigger Minute",
+        "tooltip": "",
+        "group": "14f275b6d87b584b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "59",
+        "step": 1,
+        "className": "",
+        "x": 280,
+        "y": 560,
+        "wires": [
+            [
+                "84d75885365f08ef"
+            ]
+        ]
+    },
+    {
+        "id": "3a5aa5415c50a4f8",
+        "type": "ui_numeric",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Auto Reset Seconds",
+        "tooltip": "",
+        "group": "14f275b6d87b584b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "600",
+        "step": "30",
+        "className": "",
+        "x": 260,
+        "y": 680,
+        "wires": [
+            [
+                "3d1bd404f2f5fad2"
+            ]
+        ]
+    },
+    {
+        "id": "3d1bd404f2f5fad2",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "autoResetSeconds json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"autoResetSeconds\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "818a2af0a56686da",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "movementSnap",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"movementSnap\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 460,
+        "y": 720,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "1ae9a64e2882d925",
+        "type": "ui_switch",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Movement Snap",
+        "tooltip": "",
+        "group": "14f275b6d87b584b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 280,
+        "y": 720,
+        "wires": [
+            [
+                "818a2af0a56686da"
+            ]
+        ]
+    },
+    {
+        "id": "65f75875562d6c12",
+        "type": "ui_dropdown",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Motor Style",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "14f275b6d87b584b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Interleave",
+                "value": "interleave",
+                "type": "str"
+            },
+            {
+                "label": "Single",
+                "value": "single",
+                "type": "str"
+            },
+            {
+                "label": "Double",
+                "value": "double",
+                "type": "str"
+            },
+            {
+                "label": "Micro",
+                "value": "microstep",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 290,
+        "y": 760,
+        "wires": [
+            [
+                "3c9525ab4f653a6a"
+            ]
+        ]
+    },
+    {
+        "id": "3c9525ab4f653a6a",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "movementSnap",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"style\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "0889d1a14eac7c87",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "movementSnap",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"movementMinuteStep\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 460,
+        "y": 800,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "6476e29120639ecd",
+        "type": "ui_dropdown",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Minute Increments",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "14f275b6d87b584b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "1",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "5",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "10",
+                "value": "10",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 270,
+        "y": 800,
+        "wires": [
+            [
+                "0889d1a14eac7c87"
+            ]
+        ]
+    },
+    {
+        "id": "5286d71c404ac885",
+        "type": "link in",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "links": [
+            "556b3e4e78dee793"
+        ],
+        "x": 345,
+        "y": 840,
+        "wires": [
+            [
+                "407d2b16a25d1fa0"
+            ]
+        ]
+    },
+    {
+        "id": "407d2b16a25d1fa0",
+        "type": "change",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "jsonTimeRemaining",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 840,
+        "wires": [
+            [
+                "185ea6a768189c1b"
+            ]
+        ]
+    },
+    {
+        "id": "185ea6a768189c1b",
+        "type": "rbe",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 710,
+        "y": 840,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "e3396179bf126cf0",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 1 Hr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentHr\":11}",
+        "output": "json",
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "17dc74855667c3e1",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 0.1 Mn",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentMn\":0.1}",
+        "output": "json",
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "202b4be2296e6d05",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "Mode json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"mode\":\"{{payload}}\"}",
+        "output": "str",
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "1d7368d6fd9b04b0",
+        "type": "ui_dropdown",
+        "z": "0f521bdd521c9a1d",
+        "name": "",
+        "label": "Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "14f275b6d87b584b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "gameTimer",
+                "value": "gameTimer",
+                "type": "str"
+            },
+            {
+                "label": "play",
+                "value": "play",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "202b4be2296e6d05"
+            ]
+        ]
+    },
+    {
+        "id": "34efa1bcb35bb154",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 1 hr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentHr\":1}",
+        "output": "json",
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "43028753b7d08d50",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 1 Mn",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentMn\":1}",
+        "output": "json",
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "6794895a2c01aab9",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 0.1 Mn",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentMn\":59.9}",
+        "output": "json",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "66339f6e38ec12ae",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 1 Mn",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentMn\":59}",
+        "output": "json",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "88e5a7ba4085680c",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 0.1 Hr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentHr\":11.9}",
+        "output": "json",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "11faf2dd057e1424",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 0.1 Hr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"currentHr\":0.1}",
+        "output": "json",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "806f663bb2696156",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 0.1 Mn",
+        "group": "32efb11af940f557",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CCW 0.1 Mn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 480,
+        "wires": [
+            [
+                "17dc74855667c3e1"
+            ]
+        ]
+    },
+    {
+        "id": "fab17a8cdd6e6e62",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 1 Mn",
+        "group": "32efb11af940f557",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CCW 1 Mn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "43028753b7d08d50"
+            ]
+        ]
+    },
+    {
+        "id": "462f247dd30cbc68",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 0.1 Mn",
+        "group": "32efb11af940f557",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CW 0.1 Mn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "6794895a2c01aab9"
+            ]
+        ]
+    },
+    {
+        "id": "631ae4b1be09b322",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 1 Mn",
+        "group": "32efb11af940f557",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CW 1 Mn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "66339f6e38ec12ae"
+            ]
+        ]
+    },
+    {
+        "id": "645da2ca18e7b8aa",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 0.1 Hr",
+        "group": "32efb11af940f557",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CCW 0.1 Hr",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "11faf2dd057e1424"
+            ]
+        ]
+    },
+    {
+        "id": "98e24cac376f21bf",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CCW 1 Hr",
+        "group": "32efb11af940f557",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CCW 1 Hr",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "34efa1bcb35bb154"
+            ]
+        ]
+    },
+    {
+        "id": "7a45662ec756bfe9",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 0.1 Hr",
+        "group": "32efb11af940f557",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CW 0.1 Hr",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "88e5a7ba4085680c"
+            ]
+        ]
+    },
+    {
+        "id": "2b92d4abb9bc9180",
+        "type": "ui_button",
+        "z": "0f521bdd521c9a1d",
+        "name": "CW 1 Hr",
+        "group": "32efb11af940f557",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CW 1 Hr",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"unlock\":\"false\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "e3396179bf126cf0"
+            ]
+        ]
+    },
+    {
+        "id": "f1005eee55e05010",
+        "type": "link in",
+        "z": "0f521bdd521c9a1d",
+        "name": "Reset",
+        "links": [
+            "cf085b426030cf05"
+        ],
+        "x": 345,
+        "y": 600,
+        "wires": [
+            [
+                "555c6ba16cd4bfa5"
+            ]
+        ]
+    },
+    {
+        "id": "555c6ba16cd4bfa5",
+        "type": "template",
+        "z": "0f521bdd521c9a1d",
+        "name": "triggerMn json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"reset\":\"true\"}",
+        "output": "str",
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "504c25d59cea3ee3"
+            ]
+        ]
+    },
+    {
+        "id": "45024d49a19ccf8f",
+        "type": "mqtt in",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "topic": "/pi/clock/out",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "bd0db6e03dc0c02b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "b2729adb83bbf4b9"
+            ]
+        ]
+    },
+    {
+        "id": "b2729adb83bbf4b9",
+        "type": "json",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "81f4ddcc39368eb6",
+                "23fdf9c20d702c23"
+            ]
+        ]
+    },
+    {
+        "id": "81f4ddcc39368eb6",
+        "type": "function",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "func": "var currentHr= {\"payload\":msg.payload.setHr.toString()};\nvar currentMn= {\"payload\":msg.payload.setMn.toString()};\nvar unlock= {\"payload\":msg.payload.unlock.toString().replace('false','Locked').replace('true','Unlocked')};\n\nreturn [currentHr,currentMn,unlock];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "f13b60f472febe29"
+            ],
+            [
+                "6145e9dbebe67b8d"
+            ],
+            [
+                "f654776a4bae050b",
+                "1ebcb180e85ccb51"
+            ]
+        ]
+    },
+    {
+        "id": "f13b60f472febe29",
+        "type": "ui_gauge",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "group": "010f3e64ea356359",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Hour",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "12",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 850,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6145e9dbebe67b8d",
+        "type": "ui_gauge",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "group": "010f3e64ea356359",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Minute",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 850,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "69e1b0256dbda11c",
+        "type": "ui_toast",
+        "z": "69a0b091a7fd95b0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Status Notification",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f654776a4bae050b",
+        "type": "rbe",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "69e1b0256dbda11c"
+            ]
+        ]
+    },
+    {
+        "id": "1ebcb180e85ccb51",
+        "type": "ui_text",
+        "z": "69a0b091a7fd95b0",
+        "group": "010f3e64ea356359",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "23fdf9c20d702c23",
+        "type": "debug",
+        "z": "69a0b091a7fd95b0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ecc56248ccd202c7",
+        "type": "inject",
+        "z": "80954820a252c261",
+        "name": "Loop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "4571c7e9dadb7ff5"
+            ]
+        ]
+    },
+    {
+        "id": "9d350ce9f3b61ec2",
+        "type": "change",
+        "z": "80954820a252c261",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gameState",
+                "pt": "global",
+                "to": "stopped",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "timeRemaining",
+                "pt": "global",
+                "to": "3600000",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "currentTime",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5c8a7dd3cc999a9f",
+        "type": "inject",
+        "z": "80954820a252c261",
+        "name": "Setup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "9d350ce9f3b61ec2"
+            ]
+        ]
+    },
+    {
+        "id": "4571c7e9dadb7ff5",
+        "type": "function",
+        "z": "80954820a252c261",
+        "name": "Update time remaining",
+        "func": "var currentTime = msg.payload;\nvar lastTickTime = global.get(\"lastTickTime\") || currentTime;\nvar timeRemaining = global.get(\"timeRemaining\") || 0;\nvar gameState = global.get(\"gameState\");\n\nif(gameState == \"playing\") {\n\n    timeRemaining -= (currentTime - lastTickTime);\n    if(timeRemaining < 0) {\n        timeRemaining = 0;\n    }\n    \n    global.set(\"timeRemaining\", timeRemaining);\n    \n    \n\n}\n\nmsg.timeRemaining = timeRemaining;\nglobal.set(\"lastTickTime\", currentTime);\n\nnode.status({fill:\"green\", shape:\"dot\", text:timeRemaining});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "988e4eab0136b147"
+            ]
+        ]
+    },
+    {
+        "id": "12be26bbe69058ef",
+        "type": "inject",
+        "z": "80954820a252c261",
+        "name": "Play",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "3db6d9bedc39f91d"
+            ]
+        ]
+    },
+    {
+        "id": "67949f1a68f6b30f",
+        "type": "inject",
+        "z": "80954820a252c261",
+        "name": "Stop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "e6fc67eac1ea7817"
+            ]
+        ]
+    },
+    {
+        "id": "3db6d9bedc39f91d",
+        "type": "change",
+        "z": "80954820a252c261",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gameState",
+                "pt": "global",
+                "to": "playing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6fc67eac1ea7817",
+        "type": "change",
+        "z": "80954820a252c261",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gameState",
+                "pt": "global",
+                "to": "stopped",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7aec8053f687cb7e",
+        "type": "inject",
+        "z": "80954820a252c261",
+        "name": "Reset",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "4ee60fc541200a89"
+            ]
+        ]
+    },
+    {
+        "id": "4ee60fc541200a89",
+        "type": "change",
+        "z": "80954820a252c261",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeRemaining",
+                "pt": "global",
+                "to": "3600000",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c71de52991f70f6a",
+        "type": "ui_button",
+        "z": "80954820a252c261",
+        "name": "",
+        "group": "6bcbbc989488cd21",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "e6fc67eac1ea7817"
+            ]
+        ]
+    },
+    {
+        "id": "19fb182213e4d209",
+        "type": "ui_button",
+        "z": "80954820a252c261",
+        "name": "",
+        "group": "6bcbbc989488cd21",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Play",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "3db6d9bedc39f91d"
+            ]
+        ]
+    },
+    {
+        "id": "14d3d09604500d36",
+        "type": "ui_button",
+        "z": "80954820a252c261",
+        "name": "",
+        "group": "6bcbbc989488cd21",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "4ee60fc541200a89",
+                "cf085b426030cf05"
+            ]
+        ]
+    },
+    {
+        "id": "3fe94eb7bd2866c7",
+        "type": "ui_text",
+        "z": "80954820a252c261",
+        "group": "6bcbbc989488cd21",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Time Remaining",
+        "label": "Time Remaining",
+        "format": "{{msg.formattedTimeRemaining}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "988e4eab0136b147",
+        "type": "function",
+        "z": "80954820a252c261",
+        "name": "Format time as hh:mm:ss",
+        "func": "var t = msg.timeRemaining / 1000;\nvar h = Math.floor(t/3600);\nvar m = Math.floor(t%3600 / 60);\nvar s = Math.floor(t%3600 % 60);\n\n// Ensure leading zeroes\nmsg.formattedTimeRemaining = (\"0\" + h).slice(-2) + \":\" + (\"0\" + m).slice(-2) + \":\" + (\"0\" + s).slice(-2);\nmsg.jsonTimeRemaining = {\"defaultHr\":(\"0\" + m).slice(-2),\"defaultMn\":(\"0\" + s).slice(-2)}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 240,
+        "wires": [
+            [
+                "3fe94eb7bd2866c7",
+                "556b3e4e78dee793"
+            ]
+        ]
+    },
+    {
+        "id": "556b3e4e78dee793",
+        "type": "link out",
+        "z": "80954820a252c261",
+        "name": "JSON Game Time",
+        "mode": "link",
+        "links": [
+            "5286d71c404ac885",
+            "fb52132e40c163ea"
+        ],
+        "x": 1035,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cf085b426030cf05",
+        "type": "link out",
+        "z": "80954820a252c261",
+        "name": "Reset",
+        "mode": "link",
+        "links": [
+            "f1005eee55e05010"
+        ],
+        "x": 535,
+        "y": 460,
+        "wires": []
+    }
+]
