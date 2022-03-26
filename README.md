@@ -1,7 +1,7 @@
 # Escape-Room-Clock
 Adjust the clock and unlock a door
-Debian GNU/Linux 11 (bullseye)
-Python 3.9
+- Tested on Debian GNU/Linux 11 (bullseye)
+- Python 3.9
 
 # Setup
 - sudo raspi-config
