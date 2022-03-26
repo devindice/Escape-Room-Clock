@@ -3,7 +3,10 @@ Adjust the clock and unlock a door
 - Tested on Debian GNU/Linux 11 (bullseye)
 - Python 3.9
 
-# Setup
+# Node Red
+Import the included dashboard to get an idea how to integrate with this app.
+
+# Raspbery Pi 4 Setup
 - sudo raspi-config
 - Enable interface options
   - enable ssh
