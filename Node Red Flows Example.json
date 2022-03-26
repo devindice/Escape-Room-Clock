@@ -722,6 +722,11 @@
                 "label": "play",
                 "value": "play",
                 "type": "str"
+            },
+            {
+                "label": "calibrate",
+                "value": "calibrate",
+                "type": "str"
             }
         ],
         "payload": "",
@@ -1548,7 +1553,8 @@
         "y": 500,
         "wires": [
             [
-                "4ee60fc541200a89"
+                "4ee60fc541200a89",
+                "cf085b426030cf05"
             ]
         ]
     },
