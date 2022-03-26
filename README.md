@@ -4,10 +4,10 @@ Debian GNU/Linux 11 (bullseye)
 Python 3.9
 
 # Setup
-sudo raspi-config
-Enable interface options
-- enable ssh
-- enable i2c
+- sudo raspi-config
+- Enable interface options
+  - enable ssh
+  - enable i2c
 
 Commands:
 - sudo apt update
