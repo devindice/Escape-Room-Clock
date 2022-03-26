@@ -5,18 +5,19 @@ Python 3.9
 
 # Setup
 sudo raspi-config
-interface options
-	- enable ssh
-	- enable i2c
+Enable interface options
+- enable ssh
+- enable i2c
 
-sudo apt update
-sudo apt upgrade
-sudo apt install python3-pip
-sudo pip3 install adafruit-circuitpython-motorkit
-sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
-sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
-sudo chown root /home/pi/Escape-Room-Clock/scheduler.cron
-sudo chown root /home/pi/Escape-Room-Clock/logrotate.conf
+Commands:
+- sudo apt update
+- sudo apt upgrade
+- sudo apt install python3-pip
+- sudo pip3 install adafruit-circuitpython-motorkit
+- sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
+- sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
+- sudo chown root /home/pi/Escape-Room-Clock/scheduler.cron
+- sudo chown root /home/pi/Escape-Room-Clock/logrotate.conf
 
 # Config options
 These can be sent as a JSON string over MQTT to update in real time.
