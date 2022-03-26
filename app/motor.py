@@ -9,7 +9,7 @@ import time
 
 
 @multithread.background
-def listener(globalParameters):
+def service(globalParameters):
     global parameters
     parameters = globalParameters
     try:
@@ -34,9 +34,9 @@ def motors(parameters,hour_minute):
     # Determine mode and set the target
     mode = parameters.get('mode')
     if mode == 'gameTimer':
-        target = parameters.get('default' + unit)
+        target = float(parameters.get('default' + unit))
     elif mode == 'play':
-        target = parameters.get('set' + unit)
+        target = float(parameters.get('set' + unit))
     elif mode == 'calibrate':
         logger.log.debug("Setting target to calibrate")
         if hour_minute == 'hour':

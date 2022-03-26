@@ -9,7 +9,7 @@ configFile = 'config.json'
 appPath = str(pathlib.Path(__file__).parent.resolve()).removesuffix('app')
 
 @multithread.background
-def listener(parameters):
+def service(parameters):
     oldParameters = str(parameters)
     try:
         while True:
@@ -36,15 +36,10 @@ def setup():
         'setHr':12,
         'setMn':0,
         'mode':'gameTimer',
-        'limitRotationHr':'?',
-        'limitRotationMn':'?',
         'triggerHr':1,
         'triggerMn':0,
-        'triggerPin':37,
-        'triggerDelay':3,
-        'triggerDuration':'?',
+        'triggerPin':26,
         'movementDelay':0.25,
-        'movemnentRotation':'full',
         'movementMinuteStep':'1',
         'motorHr':'motor1',
         'motorMn':'motor2',
@@ -54,11 +49,6 @@ def setup():
         'mqttBrokerAddress':'192.168.1.100',
         'mqttTopicIn':'/pi/clock/in',
         'mqttTopicOut':'/pi/clock/out',
-        'autoResetSeconds':300,
-        'timeoutMinutes':20,
-        'reduceDrift':'true?',
-        'calibrateHr':'',
-        'calibrateMn':'',
         'autoUpdate':'true',
         'buttonModePin':19,
         'buttonHrFwPin':12,

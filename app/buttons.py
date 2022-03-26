@@ -10,7 +10,7 @@ buttons = ['buttonHrFw','buttonHrRv','buttonMnFw','buttonMnRv','buttonMode']
 
 # Background process
 @multithread.background
-def listener(globalParameters):
+def service(globalParameters):
     global parameters
     parameters = globalParameters
     try:
@@ -65,6 +65,7 @@ def buttonProcess(button):
     setHr = parameters.get('setHr')
     setMn = parameters.get('setMn')
     movementMinuteStep = parameters.get('movementMinuteStep')
+    movementDelay = parameters.get('movementDelay')
     logger.log.info("Current Hour: %s Current Minute: %s" %(currentHr,currentMn))
 
     # When button is pressed
@@ -95,23 +96,23 @@ def buttonProcess(button):
                 logger.log.debug("Button held: %s" %(button))
     else:
         # Process hour/minute
-        if currentHr == setHr:
+        if float(currentHr) == float(setHr):
             if button == 'buttonHrFw':
                 parameters['setHr'] = clock.add_subtract('hour','add',setHr,1)
             elif button == 'buttonHrRv':
                 parameters['setHr'] = clock.add_subtract('hour','subtract',setHr,1)
         else:
-            logger.log.info("Motor has not completed the last task, button held")
-        if currentMn == setMn:
+            logger.log.info("currentHr: %s; setHr: %s" %(currentHr,setHr))
+        if float(currentMn) == float(setMn):
             if button == 'buttonMnFw':
                 parameters['setMn'] = clock.add_subtract('minute','add',setMn,movementMinuteStep)
             elif button == 'buttonMnRv':
                 parameters['setMn'] = clock.add_subtract('minute','subtract',setMn,movementMinuteStep)
         else:
-            logger.log.info("Motor has not completed the last task, button held")
+            logger.log.info("currentMn: %s; setMn: %s" %(currentMn,setMn))
         logger.log.info("%s %s" %(parameters.get('setHr'),parameters.get('setMn')))
     mqtt.publish(parameters)
-    time.sleep(.25)
+    time.sleep(float(movementDelay))
 
 def unlock():
     triggerHr = parameters.get('triggerHr')
@@ -125,6 +126,6 @@ def unlock():
         logger.log.info("Hour Matched")
         if int(triggerMn) == int(setMn):
             logger.log.info("Minute Matched")
-            gpio.output(triggerPin, gpio.HIGH)
+            parameters['unlock'] = 'true'        
 
 

@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 import json
 
 @multithread.background
-def listener(globalParameters):
+def service(globalParameters):
     global parameters
     parameters = globalParameters
     mqttClient = 'RPi_Clock'
