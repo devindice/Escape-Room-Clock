@@ -16,8 +16,10 @@ Commands:
 - sudo pip3 install adafruit-circuitpython-motorkit
 - sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
 - sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
-- sudo chown root /home/pi/Escape-Room-Clock/scheduler.cron
-- sudo chown root /home/pi/Escape-Room-Clock/logrotate.conf
+- sudo chown root:root /home/pi/Escape-Room-Clock/scheduler.cron
+- sudo chown root:root /home/pi/Escape-Room-Clock/logrotate.conf
+- sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
+- sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
 
 # Config options
 These can be sent as a JSON string over MQTT to update in real time.
@@ -46,7 +48,6 @@ The same will be returned on update. This is so any Node Red Dashboard can be up
 - mqttBrokerAddress: Enter the DNS or IP of the MQTT Broker.
 - mqttTopicIn: Enter the MQTT Topic for packets into the app. Default is /pi/clock/in
 - mqttTopicOut: Enter the MQTT Topic for packets out of the app. Default is /pi/clock/out
-- autoUpdate: Automatically download updates? Values are 'true' or 'false'
 - buttonModePin: What pin should trigger the 'Mode' button? Default is 19.
 - buttonHrFwPin: What pin should trigger the 'Hour Forward' button? Default is 12.
 - buttonHrRvPin: What pin should trigger the 'Hour Reverse' button? Default is 16.
