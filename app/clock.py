@@ -1,6 +1,7 @@
 import app.logger as logger
 import app.motor as motor
 
+# No longer used?
 def time(parameters,add_subtract,unit):
     if unit == 'hour':
         h = parameters.get('currentHr')
@@ -42,9 +43,7 @@ def time(parameters,add_subtract,unit):
     else:
         logger.log.error('Unknown option for "unit": %s, Only accepts "hour" or "minute"' %(unit))
 
-# Changes
-
-
+# Current Functions
 def add_subtract(hour_minute,add_subtract,val1,val2):
     logger.log.debug('Calculation: %sing %s to/from %s' %(add_subtract, val2, val1))
     # Set limits
