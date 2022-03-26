@@ -1,5 +1,7 @@
 # App Specific
 config.json
+scheduler.cron
+logrotate.conf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
