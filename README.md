@@ -27,8 +27,9 @@ The same will be returned on update. This is so any Node Red Dashboard can be up
 - style: Motor step style, smoothest seems to be interleave. Options are: 'interleave', 'single', 'double', 'micro'
 - currentHr: Where is the hour hand currently? Decimals may be used.
 - currentMn: Where is the minute hand currently? Decimals may be used.
-- defaultHr: Where should the hour hand go when not in game mode?
-- defaultMn: Where should the minute hand go when not in game mode?
+- defaultHr: Where should the hour hand go when not in game mode? This can be interactively updated for a game clock, Submit 0-60 for minutes.
+- defaultMn: Where should the minute hand go when not in game mode? This can be interactively updated for a game clock, Submit 0-60 for seconds.
+- defaultTimer: Enable game timer mode, send default values above as minutes and seconds, the minutes will be converted to hours for the hours motor.
 - setHr: This is set by the buttons on the Raspberry Pi. Setting this will move the hour hand if in game mode.
 - setMn: This is set by the buttons on the Raspberry Pi. Setting this will move the minute hand if in game mode.
 - mode: What mode is the app in. Three options exist: 'play' - This is using the buttons to move the clock. 'gameTimer' - This shows the default values when idle and can be used as a game timer. 'calibrate' - This moves the hands to 12:00 for calibration. This calibrate option does not need to exist as hands go to 12:00 when clicking play.
