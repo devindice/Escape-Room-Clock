@@ -1,5 +1,6 @@
 import logging as log
 from logging.config import dictConfig
+import pathlib
 import os
 
 # Usage
@@ -9,6 +10,8 @@ import os
 # logger.log.warning('This is a warning message')
 # logger.log.error('This is an error message')
 # logger.log.critical('This is a critical message')
+
+appPath = str(pathlib.Path(__file__).parent.resolve()).removesuffix('app')
 
 LOGGING_CONFIG = {
     'version': 1,
@@ -65,11 +68,17 @@ LOGGING_CONFIG = {
     },
 }
 
-isExist = os.path.exists('logs')
+LOGGING_CONFIG['handlers']['console_handler_file']['filename'] = appPath + 'logs/console.log'
+LOGGING_CONFIG['handlers']['error_handler_file']['filename'] = appPath + 'logs/error.log'
+LOGGING_CONFIG['handlers']['debug_handler_file']['filename'] = appPath + 'logs/debug.log'
+
+print(LOGGING_CONFIG)
+
+isExist = os.path.exists(appPath + 'logs')
 if not isExist:
   
   # Create a new directory because it does not exist 
-  os.makedirs('logs')
+  os.makedirs(appPath + 'logs')
 
 dictConfig(LOGGING_CONFIG)
 
