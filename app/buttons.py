@@ -33,7 +33,7 @@ def setPins():
         for button in buttons:
             pin = parameters.get(button + 'Pin')
             # Use 3v rail for buttons to pins
-            gpio.setup(pin, gpio.IN, pull_up_down=gpio.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
+            gpio.setup(pin, gpio.IN, pull_up_down=gpio.PUD_DOWN)
     except:
         logger.log.error("An error occured while configuring pins", exc_info=True)
 
@@ -59,20 +59,18 @@ def buttonProcess(button):
     mode = parameters.get('mode')
     buttonModeType = parameters.get('buttonModeType')
     buttonModePin = parameters.get('buttonModePin')
-    logger.log.info(mode)
     currentHr = float(parameters.get('currentHr'))
     currentMn = float(parameters.get('currentMn'))
     setHr = parameters.get('setHr')
     setMn = parameters.get('setMn')
     movementMinuteStep = parameters.get('movementMinuteStep')
     movementDelay = parameters.get('movementDelay')
-    logger.log.info("Current Hour: %s Current Minute: %s" %(currentHr,currentMn))
 
     # When button is pressed
-    logger.log.debug("Activated: %s" %(button))
+    logger.log.debug("A button was pressed")
     # If mode button, switch mode
     if button == 'buttonMode':
-        logger.log.info("buttonMode Pressed")
+        logger.log.debug("Button Pressed: Mode")
         if mode == 'gameTimer':
             logger.log.info("Switching mode to Play")
             parameters['setHr'] = 12
@@ -96,23 +94,24 @@ def buttonProcess(button):
                 logger.log.debug("Button held: %s" %(button))
     else:
         # Process hour/minute
+        logger.log.debug("Existing Values: setHr = %s, setMn = %s" %(parameters.get('setHr'),parameters.get('setMn')))
         if float(currentHr) == float(setHr):
             if button == 'buttonHrFw':
+                logger.log.debug("The Hour Forward button was pressed")
                 parameters['setHr'] = clock.add_subtract('hour','add',setHr,1)
             elif button == 'buttonHrRv':
+                logger.log.debug("The Hour Reverse button was pressed")
                 parameters['setHr'] = clock.add_subtract('hour','subtract',setHr,1)
-        else:
-            logger.log.info("currentHr: %s; setHr: %s" %(currentHr,setHr))
         if float(currentMn) == float(setMn):
             if button == 'buttonMnFw':
+                logger.log.debug("The Minute Forward button was pressed")
                 parameters['setMn'] = clock.add_subtract('minute','add',setMn,movementMinuteStep)
             elif button == 'buttonMnRv':
+                logger.log.debug("The Minute Reverse button was pressed")
                 parameters['setMn'] = clock.add_subtract('minute','subtract',setMn,movementMinuteStep)
-        else:
-            logger.log.info("currentMn: %s; setMn: %s" %(currentMn,setMn))
-        logger.log.info("%s %s" %(parameters.get('setHr'),parameters.get('setMn')))
+        logger.log.debug("New Values: setHr = %s, setMn = %s" %(parameters.get('setHr'),parameters.get('setMn')))
+        time.sleep(float(movementDelay))
     mqtt.publish(parameters)
-    time.sleep(float(movementDelay))
 
 def unlock():
     triggerHr = parameters.get('triggerHr')
@@ -120,7 +119,6 @@ def unlock():
     triggerPin = parameters.get('triggerPin')
     setHr = parameters.get('setHr')
     setMn = parameters.get('setMn')
-    gpio.setup(triggerPin, gpio.OUT)
     
     if int(triggerHr) == int(setHr):
         logger.log.info("Hour Matched")

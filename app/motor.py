@@ -75,12 +75,8 @@ def motors(parameters,hour_minute):
         mqtt.publish(parameters)
 
 def motorControl(motor,cw_ccw, style, steps):
-    if cw_ccw == 'cw':
-        direction = stepper.FORWARD
-    elif cw_ccw == 'ccw':
-        direction = stepper.BACKWARD
-    else:
-        print('unknown')
+    motor1Reverse = parameters.get('motor1Reverse')
+    motor2Reverse = parameters.get('motor2Reverse')
     if style == 'interleave':
         style=stepper.INTERLEAVE
         steps = int(steps / 8)
@@ -94,10 +90,31 @@ def motorControl(motor,cw_ccw, style, steps):
         style=stepper.MICROSTEP
         steps = steps
     else:
-        print('unknown2')
+        style=stepper.INTERLEAVE
+        steps = int(steps / 8)
     for i in range(steps):
         if motor == 'motor2':
+            if cw_ccw == 'cw':
+                if motor2Reverse == 'false':
+                    direction = stepper.FORWARD
+                else:
+                    direction = stepper.BACKWARD
+            elif cw_ccw == 'ccw':
+                if motor2Reverse == 'false':
+                    direction = stepper.BACKWARD
+                else:
+                    direction = stepper.FORWARD
             kit.stepper1.onestep(direction=direction, style=style)
         elif motor == 'motor1':
+            if cw_ccw == 'cw':
+                if motor1Reverse == 'false':
+                    direction = stepper.FORWARD
+                else:
+                    direction = stepper.BACKWARD
+            elif cw_ccw == 'ccw':
+                if motor1Reverse == 'false':
+                    direction = stepper.BACKWARD
+                else:
+                    direction = stepper.FORWARD
             kit.stepper2.onestep(direction=direction, style=style)
 

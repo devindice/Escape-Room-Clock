@@ -1,8 +1,8 @@
 import app.logger as logger
 import app.multithread as multithread
+import app.mqtt as mqtt
 import time
 import RPi.GPIO as gpio
-import app.mqtt as mqtt
 
 # Background process
 @multithread.background

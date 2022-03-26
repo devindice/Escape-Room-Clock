@@ -37,6 +37,10 @@ def on_message(client, userdata, msg):
     for key in message:
         value = message.get(key)
         if key in parameters.keys():
+            if key == 'defaultHr':
+                value = float(value) / 5
+            elif key == 'defaultMn':
+                value = float(value)
             logger.log.debug("Setting %s to %s" %(key,value))
             parameters[key] = value
         else:
@@ -49,7 +53,7 @@ def publish(parameters):
     mqttTopicIn = parameters.get('mqttTopicIn')
     if parameters.get('mqttEnable') == "true":
         try:
-            logger.log.debug("Sending Message")
+            logger.log.debug("Sending MQTT Message")
             client = mqtt.Client(mqttClient + 'Out')
             client.connect(mqttBroker)
             client.publish(mqttTopicOut,json.dumps(parameters))

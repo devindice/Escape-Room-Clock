@@ -46,7 +46,7 @@ def time(parameters,add_subtract,unit):
 
 
 def add_subtract(hour_minute,add_subtract,val1,val2):
-    logger.log.info('%s %s %s' %(add_subtract, val1, val2))
+    logger.log.debug('Calculation: %sing %s to/from %s' %(add_subtract, val2, val1))
     # Set limits
     if hour_minute == 'hour':
         limit = 12
@@ -69,6 +69,7 @@ def add_subtract(hour_minute,add_subtract,val1,val2):
     if hour_minute == 'minute':
         if result == limit:
             result = 0
+    logger.log.debug('Calculation: The new value is: %s' %(result))
     return result
     
 
