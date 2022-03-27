@@ -41,6 +41,11 @@ sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
 sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
 ```
 
+# Automatic Updates
+If an update did not work as expected, roll back with the git checkout command:
+`git checkout 1.3` will lock you to the version 1.3.
+`git checkout main` will get you the most recent update.
+
 # Config
 - These can be sent as a JSON string over MQTT to update in real time, no restart needed.
 - Editing the file will need a reboot or restart: /home/pi/Escape-Room-Clock/config.json
