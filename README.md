@@ -31,7 +31,7 @@ sudo apt upgrade
 sudo apt install python3-pip
 sudo pip3 install adafruit-circuitpython-motorkit
 ```
-- Setup Cron to Autostart and auto-update. Also there is a Log-rotate to keep logs small
+- Setup Cron to Autostart and auto-update with the updater.sh. Also there is a Log-rotate to keep logs small
 ```
 sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
 sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
