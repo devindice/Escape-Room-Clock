@@ -16,7 +16,8 @@ Import the included dashboard to get an idea how to integrate with this app.
 - Pins 4-8,15 appear to be busy, not sure if they are available.
 
 Commands:
-- sudo apt update
+- Update the OS
+-   sudo apt update
 - sudo apt upgrade
 - sudo apt install python3-pip
 - sudo pip3 install adafruit-circuitpython-motorkit
