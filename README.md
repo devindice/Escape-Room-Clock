@@ -32,7 +32,9 @@ Commands:
 
 # Config options
 These can be sent as a JSON string over MQTT to update in real time, no restart needed.
+
 Editing the file will need a reboot or restart: /home/pi/Escape-Room-Clock/config.json
+
 The same will be returned on update to update the Node Red Dashboard.
 
 - ticksFullRotation: How many ticks does the motor need for a full 360 rotation?
