@@ -14,7 +14,7 @@ parameters = config.parameters
 # Set relay on startup
 triggerPin = parameters.get('triggerPin')
 gpio.setup(triggerPin, gpio.OUT)
-gpio.output(triggerPin, gpio.LOW)
+gpio.output(triggerPin, gpio.HIGH)
 
 logger.log.info('Services Starting')
 Service1 = mqtt.service(parameters)
