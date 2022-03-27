@@ -11,6 +11,9 @@ Import the included dashboard to get an idea how to integrate with this app.
 - Enable interface options
   - enable ssh
   - enable i2c
+- Avoid GPIO pins 3 and 5 as this is the serial communication for I2C (Motor Controller)
+- Connect buttons to the 3v DC line
+- Pins 4-8,15 appear to be busy, not sure if they are available.
 
 Commands:
 - sudo apt update
