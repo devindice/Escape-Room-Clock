@@ -27,7 +27,7 @@ Commands:
 # Config options
 These can be sent as a JSON string over MQTT to update in real time.
 The same will be returned on update to update the Node Red Dashboard.
-y
+
 - ticksFullRotation: How many ticks does the motor need for a full 360 rotation?
 - style: Motor step style, smoothest seems to be interleave. Options are: 'interleave', 'single', 'double', 'micro'
 - currentHr: Where is the hour hand currently? Decimals may be used.
