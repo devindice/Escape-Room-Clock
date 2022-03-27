@@ -1,4 +1,5 @@
-cd /home/pi/Escape-Room-Clock/ && git remote update &&
+cd /home/pi/Escape-Room-Clock/ &&
+git remote update &&
 git status -uno | grep 'Your branch is behind' &&
 git stash &&
 git clean -fd &&
