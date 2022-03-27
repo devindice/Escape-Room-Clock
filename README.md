@@ -16,7 +16,7 @@ Import the included dashboard to get an idea how to integrate with this app.
 - Connect buttons to the 3v DC line
 - Pins 4-8,15 appear to be busy, not sure if they are available.
 ![GPIO Pins](https://github.com/devindice/Escape-Room-Clock/blob/main/GPIO.png?raw=true)
-Commands:
+### Commands:
 - Update the OS
 ```
 sudo apt update
