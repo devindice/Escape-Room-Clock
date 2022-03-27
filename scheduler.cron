@@ -2,4 +2,4 @@
 # Start the app
 * * * * * pi ! ps aux | grep python | grep main.py | grep -v grep && sleep 45 && /usr/bin/python3 /home/pi/Escape-Room-Clock/main.py 
 # Get automatic updates
-0 4 * * * root cd /home/pi/Escape-Room-Clock/ && git remote update && git status -uno | grep 'Your branch is behind' && git stash && git clean -fd && git pull && for FILE in $(ls -1a | tail -n+3 | grep -v 'scheduler.cron\|logrotate.conf');do chown -R pi:pi $FILE;done && kill $(ps aux | grep python | grep main.py | grep -v grep | awk '{print $2}')
+* * * * * root cd /home/pi/Escape-Room-Clock/ && git remote update && git status -uno | grep 'Your branch is behind' && git stash && git clean -fd && git pull && for FILE in $(ls -1a | tail -n+3 | grep -v 'scheduler.cron\|logrotate.conf');do chown -R pi:pi $FILE;done && kill $(ps aux | grep python | grep main.py | grep -v grep | awk '{print $2}')
