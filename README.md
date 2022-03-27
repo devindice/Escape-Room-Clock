@@ -17,16 +17,18 @@ Import the included dashboard to get an idea how to integrate with this app.
 
 Commands:
 - Update the OS
--   sudo apt update
-- sudo apt upgrade
-- sudo apt install python3-pip
-- sudo pip3 install adafruit-circuitpython-motorkit
-- sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
-- sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
-- sudo chown root:root /home/pi/Escape-Room-Clock/scheduler.cron
-- sudo chown root:root /home/pi/Escape-Room-Clock/logrotate.conf
-- sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
-- sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
+  - sudo apt update
+  - sudo apt upgrade
+- Install required Packages
+  - sudo apt install python3-pip
+  - sudo pip3 install adafruit-circuitpython-motorkit
+- Setup Cron to Autostart and auto-update. Also there is a Log-rotate to keep logs small
+  - sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
+  - sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
+  - sudo chown root:root /home/pi/Escape-Room-Clock/scheduler.cron
+  - sudo chown root:root /home/pi/Escape-Room-Clock/logrotate.conf
+  - sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
+  - sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
 
 # Config options
 These can be sent as a JSON string over MQTT to update in real time.
@@ -67,3 +69,9 @@ The same will be returned on update to update the Node Red Dashboard.
 - buttonMnRvType: What button type is used for the 'Minute Reverse' button? Options are 'normOpen' or 'normClose'.
 - reset: Set this to 'true' to trigger a reset.
 - unlock: Set this to 'true' to trigger the relay.
+
+# Logs
+Logs can be found at /home/pi/Escape-Room-Clock/logs
+- Console - This is a general overview of what the app is doing, errors can be displayed here.
+- Error - This only contains errors and crashes to help pinpoint time.
+- Debug - This is very detailed logs as to what the app and all modutes are doing.
