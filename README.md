@@ -3,10 +3,10 @@ Adjust the clock and unlock a door
 - Tested on Debian GNU/Linux 11 (bullseye)
 - Python 3.9
 
-# Node Red
+## Node Red
 Import the included dashboard to get an idea how to integrate with this app.
 
-# Raspbery Pi 4 Setup
+## Raspbery Pi 4 Setup
 - `sudo raspi-config`
 - Be sure to change the default password
 - Enable interface options
@@ -41,12 +41,12 @@ sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
 sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
 ```
 
-# Automatic Updates
+## Automatic Updates
 If an update did not work as expected, roll back with the git checkout command:
 `git checkout 1.3` will lock you to the version 1.3.
 `git checkout main` will get you the most recent update.
 
-# Config
+## Config
 - These can be sent as a JSON string over MQTT to update in real time, no restart needed.
 - Editing the file will need a reboot or restart: /home/pi/Escape-Room-Clock/config.json
 - The same will be returned on update to update the Node Red Dashboard.
@@ -88,7 +88,7 @@ If an update did not work as expected, roll back with the git checkout command:
 - reset: Set this to 'true' to trigger a reset.
 - unlock: Set this to 'true' to trigger the relay.
 
-# Logs
+## Logs
 Logs can be found at /home/pi/Escape-Room-Clock/logs
 - Console - This is a general overview of what the app is doing, errors can be displayed here.
 - Error - This only contains errors and crashes to help pinpoint time.
