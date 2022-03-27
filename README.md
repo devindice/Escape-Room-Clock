@@ -14,7 +14,7 @@ Import the included dashboard to get an idea how to integrate with this app.
   - enable i2c
 - Avoid GPIO 2 and 3 as this is the serial communication for I2C (Motor Controller)
 - Connect buttons to the 3v DC line
-- Pins ? appear to be busy, not sure if they are available.
+- GPIO 4-8, and 15 appear to be busy, not sure if they are available.
 - Use the GPIO values in the config file. Using the Pin value will result in the whole device freezing on boot.
   - This would be very difficult to fix. Mount the SD card in a linux system or reinstall. For this I will add a delay of 45s before start.
 ![GPIO Pins](https://github.com/devindice/Escape-Room-Clock/blob/main/GPIO.png?raw=true)
