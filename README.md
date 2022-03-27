@@ -7,36 +7,42 @@ Adjust the clock and unlock a door
 Import the included dashboard to get an idea how to integrate with this app.
 
 # Raspbery Pi 4 Setup
-- sudo raspi-config
+- `sudo raspi-config`
+- Be sure to change the default password
 - Enable interface options
   - enable ssh
   - enable i2c
 - Avoid GPIO pins 3 and 5 as this is the serial communication for I2C (Motor Controller)
 - Connect buttons to the 3v DC line
 - Pins 4-8,15 appear to be busy, not sure if they are available.
-
+![GPIO Pins](https://github.com/devindice/Escape-Room-Clock/blob/main/GPIO.png?raw=true)
 Commands:
 - Update the OS
-  - sudo apt update
-  - sudo apt upgrade
+```
+sudo apt update
+sudo apt upgrade
+```
 - Install required Packages
-  - sudo apt install python3-pip
-  - sudo pip3 install adafruit-circuitpython-motorkit
+```
+sudo apt install python3-pip
+sudo pip3 install adafruit-circuitpython-motorkit
+```
 - Setup Cron to Autostart and auto-update. Also there is a Log-rotate to keep logs small
-  - sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
-  - sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
-  - sudo chown root:root /home/pi/Escape-Room-Clock/scheduler.cron
-  - sudo chown root:root /home/pi/Escape-Room-Clock/logrotate.conf
-  - sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
-  - sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
+```
+sudo ln -sf /home/pi/Escape-Room-Clock/scheduler.cron /etc/cron.d/escape-room-clock 
+sudo ln -sf /home/pi/Escape-Room-Clock/logrotate.conf /etc/logrotate.d/escape-room-clock 
+sudo chown root:root /home/pi/Escape-Room-Clock/scheduler.cron
+sudo chown root:root /home/pi/Escape-Room-Clock/logrotate.conf
+sudo chmod 644 /home/pi/Escape-Room-Clock/scheduler.cron
+sudo chmod 644 /home/pi/Escape-Room-Clock/logrotate.conf
+```
 
-# Config options
-These can be sent as a JSON string over MQTT to update in real time, no restart needed.
+# Config
+- These can be sent as a JSON string over MQTT to update in real time, no restart needed.
+- Editing the file will need a reboot or restart: /home/pi/Escape-Room-Clock/config.json
+- The same will be returned on update to update the Node Red Dashboard.
 
-Editing the file will need a reboot or restart: /home/pi/Escape-Room-Clock/config.json
-
-The same will be returned on update to update the Node Red Dashboard.
-
+### Input and Output Options
 - ticksFullRotation: How many ticks does the motor need for a full 360 rotation?
 - style: Motor step style, smoothest seems to be interleave. Options are: 'interleave', 'single', 'double', 'micro'
 - currentHr: Where is the hour hand currently? Decimals may be used.
