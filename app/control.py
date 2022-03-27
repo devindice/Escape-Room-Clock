@@ -29,10 +29,10 @@ def check():
         parameters['setHr'] = 12
         parameters['setMn'] = 0
         parameters['mode'] = 'gameTimer'
-        gpio.output(triggerPin, gpio.LOW)
+        gpio.output(triggerPin, gpio.HIGH)
         mqtt.publish(parameters)
     if unlock == 'true':
-        gpio.output(triggerPin, gpio.HIGH)
+        gpio.output(triggerPin, gpio.LOW)
         mqtt.publish(parameters)
         parameters['unlock'] = 'True'
         logger.log.info('Relay Triggered')
