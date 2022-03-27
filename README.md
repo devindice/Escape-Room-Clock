@@ -37,7 +37,7 @@ The same will be returned on update to update the Node Red Dashboard.
 - defaultTimer: Enable game timer mode, send default values above as minutes and seconds, the minutes will be converted to hours for the hours motor. Options are 'true' or 'false'
 - setHr: This is set by the buttons on the Raspberry Pi. Setting this will move the hour hand if in game mode.
 - setMn: This is set by the buttons on the Raspberry Pi. Setting this will move the minute hand if in game mode.
-- mode: What mode is the app in. Three options exist: 'play' - This is using the buttons to move the clock. 'gameTimer' - This shows the default values when idle and can be used as a game timer. 'calibrate' - This moves the hands to 12:00 for calibration. This calibrate option does not need to exist as hands go to 12:00 when clicking play.
+- mode: What mode is the app in. Three options exist: 'play' - This is using the buttons to move the clock. 'gameTimer' - This shows the default values when idle and can be used as a game timer. 'calibrate' - This moves the hands to 12:00 for calibration. This calibrate option does not need to exist as hands go to 12:00 when toggling mode to 'play'.
 - triggerHr: What hour should the trigger pin be activated?
 - triggerMn: What hour should the trigger pin be activated?
 - triggerPin: What pin should be activated when the hour and time match?
