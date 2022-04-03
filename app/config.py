@@ -27,7 +27,7 @@ def setup():
     else:
         logger.log.warning("Config does not exist, creating default config")
         settings = {
-        'ticksFullRotation':12000,
+        'ticksFullRotation':11610,
         'style':'interleave',
         'currentHr':12,
         'currentMn':0,
