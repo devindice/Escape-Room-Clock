@@ -1000,8 +1000,8 @@
         "id": "60ed155a719d600b",
         "type": "ui_numeric",
         "z": "2c418ac500422ff1",
-        "name": "",
-        "label": "numeric",
+        "name": "ticksFullRotation",
+        "label": "ticksFullRotation",
         "tooltip": "",
         "group": "14f275b6d87b584b",
         "order": 0,
@@ -1015,7 +1015,7 @@
         "min": "11500",
         "max": "11800",
         "step": "5",
-        "x": 300,
+        "x": 270,
         "y": 120,
         "wires": [
             [
