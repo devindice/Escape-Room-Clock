@@ -1,5 +1,5 @@
 # Escape-Room-Clock
-Adjust the clock and unlock a door
+Watch game time remaining tick down. Players can toggle to a game mode to adjust the clock, if correct a relay will trip to open a door.
 - Tested on Debian GNU/Linux 11 (bullseye)
 - Python 3.9
 
