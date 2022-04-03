@@ -93,6 +93,7 @@ def motorControl(motor,cw_ccw, style, steps):
         style=stepper.INTERLEAVE
         steps = int(steps / 8)
     for i in range(steps):
+        time.sleep(0.01)
         if motor == 'motor2':
             if cw_ccw == 'cw':
                 if motor2Reverse == 'false':
@@ -117,4 +118,5 @@ def motorControl(motor,cw_ccw, style, steps):
                 else:
                     direction = stepper.FORWARD
             kit.stepper2.onestep(direction=direction, style=style)
-
+    #kit.stepper1.release()
+    #kit.stepper2.release()
