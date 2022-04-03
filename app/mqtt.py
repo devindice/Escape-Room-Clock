@@ -24,7 +24,7 @@ def service(globalParameters):
                 except:
                     logger.log.error("mqtt client closed", exc_info=True)
             except:
-                logger.log.error("Unable to subscribe to %s on %s" %(mqttTopic,mqttBroker), exc_info=True)
+                logger.log.error("Unable to subscribe to %s on %s" %(mqttTopicIn,mqttBroker), exc_info=True)
         else:
             logger.log.info('Subscription Disabled')
     except:
