@@ -17,8 +17,10 @@ def service(globalParameters):
         logger.log.critical("Listener Crashed", exc_info=True)
 
 def check():
+    addNewParams()
     reset = parameters.get('reset')
     unlock = parameters.get('unlock')
+    unlockLastState = parameters.get('unlockLastState')
     defaultHr = float(parameters.get('defaultHr'))
     currentHr = float(parameters.get('currentHr'))
     triggerPin = parameters.get('triggerPin')
@@ -26,13 +28,17 @@ def check():
         logger.log.info('Resetting')
         parameters['reset'] = 'false'
         parameters['unlock'] = 'false'
+        parameters['unlockLastState'] = 'false'
         parameters['setHr'] = 12
         parameters['setMn'] = 0
         parameters['mode'] = 'gameTimer'
         gpio.output(triggerPin, gpio.HIGH)
         mqtt.publish(parameters)
-    if unlock == 'true':
+    if unlock == 'true' && unlockLastState == 'false':
         gpio.output(triggerPin, gpio.LOW)
+        time.sleep(0.5)
+        gpio.output(triggerPin, gpio.HIGH)
+        parameters['unlockLastState'] = parameters.get('unlock')
         mqtt.publish(parameters)
         parameters['unlock'] = 'True'
         logger.log.info('Relay Triggered')
@@ -42,3 +48,8 @@ def check():
     if currentHr < 1:
         parameters['currentHr'] = currentHr + 12
         logger.log.debug('Fixing Invalid currentHr')
+
+
+def addNewParams():
+    if ! parameters.get('unlockLastState'):
+        parameters['unlockLastState'] = parameters.get('unlock')
