@@ -124,6 +124,7 @@ def unlock():
         logger.log.info("Hour Matched")
         if int(triggerMn) == int(setMn):
             logger.log.info("Minute Matched")
-            parameters['unlock'] = 'true'        
+            parameters['unlock'] = 'true'
+            parameters['unlockLastState'] = 'false'
 
 
