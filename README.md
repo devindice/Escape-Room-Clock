@@ -86,7 +86,7 @@ If an update did not work as expected, roll back with the git checkout command:
 - buttonMnFwType: What button type is used for the 'Minute Forward' button? Options are 'normOpen' or 'normClose'.
 - buttonMnRvType: What button type is used for the 'Minute Reverse' button? Options are 'normOpen' or 'normClose'.
 - reset: Set this to 'true' to trigger a reset.
-- unlock: Set this to 'true' to trigger the relay.
+- unlock and unlockLastState: Set unlock and unlockLastState to false to reset. Set unlock to true, unlockLastState to false to trigger the relay. This will then cause unlockLastState to go to true to prevent retriggers, yet allowing the MQTT to broadcast that the relay has been triggered.
 
 ## Logs
 Logs can be found at /home/pi/Escape-Room-Clock/logs
