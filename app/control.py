@@ -34,7 +34,7 @@ def check():
         parameters['mode'] = 'gameTimer'
         gpio.output(triggerPin, gpio.HIGH)
         mqtt.publish(parameters)
-    if unlock == 'true' && unlockLastState == 'false':
+    if unlock == 'true' and unlockLastState == 'false':
         gpio.output(triggerPin, gpio.LOW)
         time.sleep(0.5)
         gpio.output(triggerPin, gpio.HIGH)
