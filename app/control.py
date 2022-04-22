@@ -51,5 +51,5 @@ def check():
 
 
 def addNewParams():
-    if ! parameters.get('unlockLastState'):
+    if not parameters.get('unlockLastState'):
         parameters['unlockLastState'] = parameters.get('unlock')
