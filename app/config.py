@@ -62,7 +62,8 @@ def setup():
         'buttonMnFwType':'normOpen',
         'buttonMnRvType':'normOpen',
         'reset':'false',
-        'unlock':'false'
+        'unlock':'false',
+        'unlockLastState':'false'
         }
         write(settings)    
 
