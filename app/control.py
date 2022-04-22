@@ -38,9 +38,9 @@ def check():
         gpio.output(triggerPin, gpio.LOW)
         time.sleep(0.5)
         gpio.output(triggerPin, gpio.HIGH)
-        parameters['unlockLastState'] = parameters.get('unlock')
+        parameters['unlockLastState'] = 'true'
         mqtt.publish(parameters)
-        parameters['unlock'] = 'True'
+        parameters['unlock'] = 'true'
         logger.log.info('Relay Triggered')
     if defaultHr < 1:
         parameters['defaultHr'] = defaultHr + 12
